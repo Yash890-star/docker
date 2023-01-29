@@ -1,13 +1,13 @@
 version: '3'
 services:
   react-app:
-    build: ./my-app
+    image: cl
     stdin_open: true
     ports:
       - 3000:3000
 
   node-server:
-    build: ./server
+    image: sr
     ports:
       - 5000:5000
     depends_on:
