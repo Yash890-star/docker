@@ -1,0 +1,25 @@
+version: '3'
+services:
+  react-app:
+    build: ./my-app
+    stdin_open: true
+    ports:
+      - 3000:3000
+
+  node-server:
+    build: ./server
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+    driver: local
